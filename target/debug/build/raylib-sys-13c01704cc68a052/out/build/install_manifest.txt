@@ -1,0 +1,10 @@
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/lib/libraylib.a
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/include/raylib.h
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/lib/pkgconfig/raylib.pc
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/lib/cmake/raylib/raylib-config-version.cmake
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/lib/cmake/raylib/raylib-config.cmake
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/include/raylib.h
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/include/rlgl.h
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/include/physac.h
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/include/raymath.h
+/home/wjanus/Documents/Limonka/target/debug/build/raylib-sys-13c01704cc68a052/out/include/raudio.h
