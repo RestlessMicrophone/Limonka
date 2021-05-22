@@ -1,50 +1,23 @@
 use std::borrow::Borrow;
 
-pub struct StateManager<'state_lifetime> {
-    pub current_states: Vec<state>,
-    pub current_state: &'state_lifetime state,
-    pub time_to_set: bool
+mod menu_state;
+mod game_state;
+
+/// all game logic happens in states
+pub fn apply_state(state_id: &i16){
+
+    match state_id {
+        0 => menu_state::update_state(),
+        1 => game_state::update_state(),
+
+        _ => {}
+    }
+
+
 }
 
-//// the lifetime of the struct and impl aren't the same despite the name
-impl<'state_lifetime> StateManager <'state_lifetime>{
-    pub fn set_to_new_state(& mut self, to_add: state){
+pub fn menu_state(){
 
-        if  !self.current_states.contains(&to_add){
-        }
-        else {
-
-        }
-    }
-
-    pub fn remove_state(&self, state_string: &str){
-
-    }
-
-    pub fn change_state(&self){
-        if self.time_to_set {
-
-        }
-
-
-    }
-
-    pub fn return_state(&self) -> &i32 {
-        let i : &i32 = &self.current_state.state_id;
-        i
-    }
 }
 
-
-pub struct state{
-    pub state_name: String,
-    pub state_id: i32
-}
-
-
-impl PartialEq for state {
-    fn eq(&self, other: &Self) -> bool {
-        self.state_name == other.state_name
-    }
-}
 

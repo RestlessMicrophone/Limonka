@@ -10,3 +10,5 @@ raylib = "3.5.0"
 glam = "0.15.2"
 bvh = "0.5.0"
 serde_json = "1.0"
+ndarray = "0.13.0"
+specs = {version = "0.16.1", features = ["specs-derive"]}
