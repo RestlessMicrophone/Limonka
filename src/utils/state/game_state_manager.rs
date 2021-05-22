@@ -1,14 +1,19 @@
+use std::borrow::Borrow;
 
-pub struct StateManager {
-    pub(crate) current_states: Vec<state>,
-    pub(crate) current_state: state
+pub struct StateManager<'state_lifetime> {
+    pub current_states: Vec<state>,
+    pub current_state: &'state_lifetime state,
+    pub time_to_set: bool
 }
 
-impl StateManager {
-    pub fn add_state_on_top(& mut self, to_add: state){
+//// the lifetime of the struct and impl aren't the same despite the name
+impl<'state_lifetime> StateManager <'state_lifetime>{
+    pub fn set_to_new_state(& mut self, to_add: state){
 
         if  !self.current_states.contains(&to_add){
-            self.current_states.push(to_add);
+        }
+        else {
+
         }
     }
 
@@ -16,33 +21,26 @@ impl StateManager {
 
     }
 
-    fn set_to_new_state(&self){
+    pub fn change_state(&self){
+        if self.time_to_set {
 
+        }
+
+
+    }
+
+    pub fn return_state(&self) -> &i32 {
+        let i : &i32 = &self.current_state.state_id;
+        i
     }
 }
 
 
 pub struct state{
-    pub(crate) state_name: str
+    pub state_name: String,
+    pub state_id: i32
 }
 
-fn main(){
-    let begin_state = state{
-        state_name: *String::from("stateA")
-    };
-
-    let state_to_add = state{
-        state_name: *String::from("stateB")
-    };
-
-    let mut x: StateManager = StateManager{
-        current_states: vec![],
-        current_state: begin_state
-    };
-
-    x.add_state_on_top(state_to_add);
-
-}
 
 impl PartialEq for state {
     fn eq(&self, other: &Self) -> bool {

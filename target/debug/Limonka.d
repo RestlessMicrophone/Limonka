@@ -1,1 +1,1 @@
-/home/wjanus/Documents/Limonka/target/debug/Limonka: /home/wjanus/Documents/Limonka/src/main.rs
+/home/wjanus/Documents/Limonka/target/debug/Limonka: /home/wjanus/Documents/Limonka/src/main.rs /home/wjanus/Documents/Limonka/src/utils/state/game_state_manager.rs /home/wjanus/Documents/Limonka/src/utils/state.rs /home/wjanus/Documents/Limonka/src/utils.rs
