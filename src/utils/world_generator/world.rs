@@ -1,7 +1,6 @@
-use ndarray::Array2;
-use crate::utils::world_generator::world_cell::map_cell;
+use crate::utils::world_generator::world_cell::MapCell;
+use crate::utils::misc::dim_array::Array2d;
 
-pub struct worldmap{
-
-    pub(crate) world_map_cells : Array2<map_cell>
+pub struct Worldmap {
+    pub(crate) world_map_cells : Array2d<MapCell>
 }

@@ -4,7 +4,7 @@ use raylib::color::Color;
 use raylib::core::math::Vector3;
 use raylib::{RaylibHandle, RaylibThread};
 use raylib::camera::Camera3D;
-use crate::utils::world_generator::world::worldmap;
+use crate::utils::world_generator::world::Worldmap;
 
 
 pub struct game_state{
@@ -12,7 +12,7 @@ pub struct game_state{
     pub(crate) camera: Camera3D,
     pub(crate) cube_position: Vector3,
     pub(crate) is_state_running: bool,
-    pub(crate) world_map: worldmap
+    pub(crate) world_map: Worldmap
 
 }
 
