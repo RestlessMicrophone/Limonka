@@ -25,7 +25,7 @@ pub fn apply_state(state_id: &i16){
     // init states
     let mut game_state = crate::utils::data_handler::state_initializer::init_game_state(&mut rl, &thread);
 
-    &game_state.world_map.world_map_cells.get_val_at(3, 5);
+    &game_state.world_map.organize_map();
 
     // heart of the pgrogram
     while !rl.window_should_close() {

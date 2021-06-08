@@ -38,10 +38,21 @@ impl game_state {
         {
             let mut d = d.begin_mode3D(&self.camera);
 
-            d.draw_cube(self.cube_position, 2.0, 2.0, 2.0, Color::RED);
+
+            for x in 0..self.world_map.world_map_cells.size() {
+                for y in 0..self.world_map.world_map_cells.size() {
+
+                    let xToPlace = x.clone() as usize;
+                    let yToPlace = y.clone() as usize;
+
+                    let drawpos = &self.world_map.world_map_cells.get_val_at(&xToPlace, &yToPlace).get3DVector();
+
+                    d.draw_cube(drawpos, 2.0, 2.0, 2.0, Color::RED);
+                }
+            }
         }
 
-        d.draw_text("Hello, world!", 12, 12, 20, Color::BLACK);
+        d.draw_text("Limonka 0.1", 12, 12, 20, Color::BLACK);
     }
 
 }

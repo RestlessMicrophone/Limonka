@@ -11,7 +11,7 @@ pub fn init_game_state(rl: &mut RaylibHandle, thread: &RaylibThread) -> game_sta
         camera: crate::utils::camera::topdown_camera::init_camera(rl),
         cube_position:  Vector3::zero(),
         is_state_running: true,
-        world_map: worldmap_load(60)
+        world_map: worldmap_load(30)
     };
     game_state_to_return
 }
