@@ -1,12 +1,12 @@
-use crate::utils::world_generator::world_cell::MapCell;
+use crate::utils::world_generator::world_cell::WalkCell;
 use crate::utils::misc::dim_array::Array2d;
 
-pub struct Worldmap {
-    pub(crate)  world_map_cells : Array2d<MapCell>
+pub struct Gamemap {
+    pub(crate) world_walk_cells: Array2d<WalkCell>
 }
 
 
-impl Worldmap {
+impl Gamemap {
 
     pub fn organize_map(&mut self){
 
@@ -17,37 +17,37 @@ impl Worldmap {
         //done?
         //now it's still ugly, but it will do for now
 
-        let size = self.world_map_cells.size() as usize;
+        let size = self.world_walk_cells.size();
 
         let sizeLoop = size.clone() * size.clone();
 
-        let mut x: usize = 0;
-        let mut y : usize = 0;
+        let mut x: i64 = 0;
+        let mut y : i64 = 0;
 
-        let mut toAddX : usize = 0;
-        let mut toAddY : usize = 0;
+        let mut toAddX : i64 = 0;
+        let mut toAddY : i64 = 0;
 
         println!("the vector size is {}", &sizeLoop);
 
 
-        let loopsize = size.clone() - 1;
+        let loopsize: i64 = size.clone() - 1;
 
         for i in 0..sizeLoop {
 
-            let mut current_block =  self.world_map_cells.get_val_at(&x, &y);
+            let mut current_block =  self.world_walk_cells.get_val_at(&x, &y);
 
             current_block.add_vector(toAddX.clone(), toAddY.clone());
 
             if y < loopsize {
                 y += 1;
-                toAddY = 3 * y;
+                toAddY = 3 * &y;
             }
 
             else {
               //  current_block.add_vector(toAddX.clone(), 0);
                 x += 1;
                 y = 0;
-                toAddX = 3 * x;
+                toAddX = 3 * &x;
                 toAddY = 0;
             }
 
