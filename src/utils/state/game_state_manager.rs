@@ -18,7 +18,7 @@ pub fn apply_state(state_id: &i16){
     };
 
 
-    rl.set_target_fps(60);
+    rl.set_target_fps(300);
 
 
 
@@ -31,7 +31,12 @@ pub fn apply_state(state_id: &i16){
 
     &game_state.ECSworld.dummy_entity();
 
-    &game_state.world_map.world_map_cells.get_val_at(&6,&6).set_cell(3);
+    /// makes the world
+    &game_state.world_map.let_there_be_light();
+
+    //&game_state.world_map.world_map_cells.get_val_at(&130, &80).set_cell(30);
+
+
     // heart of the pgrogram
     while !rl.window_should_close() {
 

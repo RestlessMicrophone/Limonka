@@ -25,7 +25,7 @@ pub struct game_state{
 
 impl game_state {
 
-    pub fn update_state(&mut self, rl: &mut RaylibHandle, thread: &RaylibThread){
+    pub  fn update_state(&mut self, rl: &mut RaylibHandle, thread: &RaylibThread){
         // input
         unsafe {
             input_map::handle_keys(&rl);
@@ -34,7 +34,9 @@ impl game_state {
 
         //logic
 
-        self.game_logic();
+        let delta_time = rl.get_frame_time();
+
+        self.game_logic(delta_time);
 
         // render
         rl.update_camera(&mut self.camera);
@@ -51,6 +53,7 @@ impl game_state {
 
             //3D RENDER
 
+
             for x in 0..self.game_map.world_walk_cells.size() {
                 for y in 0..self.game_map.world_walk_cells.size() {
 
@@ -61,27 +64,37 @@ impl game_state {
             }
         }
 
+
+
         // 2D Render
+
+        // settings this to high values is pretty useful for debugging
+        let distance_mult = 2;
+
 
         for x in 0..self.world_map.world_map_cells.size() {
             for y in 0..self.world_map.world_map_cells.size() {
 
                 let current_cell = &mut self.world_map.world_map_cells.get_val_at(&x, &y);
 
-                d.draw_rectangle((current_cell.getPosX() + 100) as i32, (current_cell.getPosY() + 100) as i32, 1, 1, current_cell.get_color());
+
+                d.draw_rectangle((current_cell.getPosX() + 100 + (&x * &distance_mult)) as i32, (current_cell.getPosY() + 100 + (&y * &distance_mult)) as i32, 3, 3, current_cell.get_color());
 
             }
         }
 
 
+
         d.draw_text("Limonka 0.1", 12, 12, 20, Color::BLACK);
+        d.draw_fps(12,30);
+
     }
 
 
-    fn game_logic(&mut self){
+     fn game_logic(&mut self, delta_time : f32){
 
+        self.world_map.update_time(&delta_time);
         self.world_map.move_cells();
-
 
     }
 

@@ -13,7 +13,7 @@ pub fn init_game_state(rl: &mut RaylibHandle, thread: &RaylibThread) -> game_sta
         camera: crate::utils::camera::topdown_camera::init_camera(rl),
         cube_position:  Vector3::zero(),
         is_state_running: true,
-        world_map: worldmap_load(128),
+        world_map: worldmap_load(155),
         game_map: gamemap_load(30),
         ECSworld: ECShandler::return_handler(),
 
@@ -46,7 +46,8 @@ fn worldmap_load(size: i64) -> Worldmap {
     // make this array values filled with walk cell instances
 
     let world_to_generate = Worldmap {
-        world_map_cells: dim_array::return2d_mapArray(size)
+        world_map_cells: dim_array::return2d_mapArray(size),
+        map_update_time: 0.0
     };
 
     world_to_generate

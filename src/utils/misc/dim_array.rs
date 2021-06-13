@@ -48,6 +48,8 @@ pub fn return2d_mapArray(size: i64) -> Array2d<MapCell> {
         pos_y: 0,
         landType: world_generator::indirect_world::MapCell::initLand(),
         actionReady: false,
+        action_set: false,
+        action_unavailable: false,
         massLeft: 0
     }];
 
@@ -60,6 +62,8 @@ pub fn return2d_mapArray(size: i64) -> Array2d<MapCell> {
             pos_y: y.clone(),
             landType: world_generator::indirect_world::MapCell::initLand(),
             actionReady: false,
+            action_set: false,
+            action_unavailable: false,
             massLeft: 0
         };
 
